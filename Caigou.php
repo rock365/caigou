@@ -110,7 +110,6 @@ class Caigou
      */
     public function indexer($id, $string)
     {
-        $id = (int)$id;
         $terms = $this->analyzer($string, 2);
         if (!empty($terms)) {
             $this->indexTempContainer[$id] = $terms;
