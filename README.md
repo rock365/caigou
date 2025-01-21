@@ -15,7 +15,11 @@ $tableName = 'test';//索引库名称
 $Caigou = new \CaigouSearch\Core\Caigou($tableName);
 // 创建索$tableName引库
 $Caigou->createIndex();
-// 导入数据
+
+// 导入数据 从数据库查询数据
+$where = [
+    // ...
+];
 $result = Db::table('dev')->where($where)->select();
 foreach ($result as $v) {
     $id = $v['id'];// 主键
