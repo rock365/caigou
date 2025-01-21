@@ -5,7 +5,7 @@
 
 ## 引入文件
 ```php
-    require_once 'yourdirname/caigou/Wind.php';
+    require_once 'yourdirname/caigou/Caigou.php';
 ```
 
 ## 导入数据
