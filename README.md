@@ -50,10 +50,13 @@ $query = [
     'page'=>1,//第几页
     'list_rows'=>10,//每页多少条
 ];
-// 搜索结果 $res: id=>命中个数
+// 调用搜索接口
 $res = $Caigou->search($query);
+// 命中信息 id=>命中个数
+$hits = $res['hits'];
+// 主键列表
+$ids = $res['ids'];
 // 构造查询sql语句
-$ids = array_keys($res);
 $ids = implode(',',$ids);
 $sql = "select * from tablename where id in($ids)";
 //...

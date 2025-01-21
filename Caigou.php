@@ -35,7 +35,6 @@ class Caigou
         if (!is_dir($this->indexDir)) {
             mkdir($this->indexDir, 0777);
         }
-       
     }
 
     /**
@@ -268,13 +267,23 @@ class Caigou
             }
         }
 
-        $res = [];
+        $res = [
+            'hits' => [],
+            'ids' => [],
+            'page' => $page
+        ];
+
         if (!empty($temp)) {
             $temp = array_merge(...$temp);
             $temp = array_count_values($temp);
             arsort($temp);
-            $res = array_slice($temp, ($page - 1) * $listRows, $listRows, true);
+            $result = array_slice($temp, ($page - 1) * $listRows, $listRows, true);
+            $res['hits'] = $result;
+            $ids = array_keys($result);
+            $res['ids'] = $ids;
+            $res['page'] = $page;
         }
-        return (array)$res;
+
+        return $res;
     }
 }
