@@ -1,4 +1,4 @@
-这是一个轻量级的PHP全文检索类库，可用于中文内容的全文检索，基于倒排索引结构和ngram分词开发，引入即可使用。如果你的文章不多，搜索场景简单，那么这个插件对你来说非常适合。
+这是一个轻量级的PHP全文检索类库，完全免费，可用于中文内容的全文检索，基于倒排索引结构和ngram分词开发，引入即可使用。如果你的文章不多，搜索场景简单，那么这个插件对你来说非常适合。
 
 接口包括：创建、删除索引库，导入数据、构建索引、搜索。注意，此引擎不适合大量数据。
 
@@ -30,9 +30,11 @@ foreach ($result as $v) {
 $Caigou->batchWrite();
 ```
 
-
 ## 构建索引
+
 ```php
+// 循环导入数据
+// ...
 // 数据批量写入完成，开始构建索引数据
 $Caigou->buildIndex();
 ```
@@ -41,6 +43,8 @@ $Caigou->buildIndex();
 ## 开始搜索
 ```php
 // 开始搜索，返回id集合
+$tableName = 'test';//索引库名称
+$Caigou = new \CaigouSearch\Core\Caigou($tableName);
 $query = [
     'query'=>'脚本语言',//搜索内容
     'page'=>1,//第几页
@@ -60,7 +64,7 @@ $sql = "select * from tablename where id in($ids)";
 ```php
 // 删除test索引库
 $tableName = 'test';//索引库名称
-$Caigou = new \WindSearch\Core\Wind($tableName);
+$Caigou = new \CaigouSearch\Core\Caigou($tableName);
 $Caigou->delIndex();
 ```
 
