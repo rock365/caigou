@@ -89,6 +89,20 @@ class Caigou
 
 
     /**
+	 * 是否存在索引库
+	 */
+	public function checkIndex()
+	{
+		if (!is_dir($this->indexDir . $this->IndexName . '/')) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+
+
+    /**
      * 创建索引库文件夹
      */
     public function createIndex()
