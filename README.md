@@ -13,7 +13,9 @@ require_once 'yourdirname/caigou/Caigou.php';
 ```php
 $tableName = 'test';//索引库名称
 $Caigou = new \CaigouSearch\Core\Caigou($tableName);
-// 创建索$tableName引库
+// 删除索引库
+$Caigou->delIndex();
+// 创建索引库
 $Caigou->createIndex();
 
 // 导入数据 从数据库查询数据
